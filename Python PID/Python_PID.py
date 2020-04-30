@@ -1,5 +1,5 @@
 dt = 0.1
-iterations = 10
+iterations = 100
 
 def pid_data(kp,ki,kd):
     integral = 0
@@ -20,7 +20,17 @@ def pid_data(kp,ki,kd):
         array.append(current)
     return array
 
-pid_settings = [[0.5, 0.1, 0.05], [0.4 ,0,0]]
+
+
+#Add a new array for a new line
+pid_settings = [[0.5, 0.1, 0.05], 
+                [0.4 ,0,0],
+                [0.01,0.1,0],
+                ]
+
+
+
+
 
 import matplotlib.pyplot as plt
 
