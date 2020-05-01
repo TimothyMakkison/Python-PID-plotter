@@ -1,13 +1,15 @@
 dt = 0.1
+goal = 10
 iterations = 100
+
 
 def pid_data(kp,ki,kd):
     integral = 0
     priorerror = 0
+    velocity = 0
 
     current = 0
     array = [current]
-    goal = 10
     for i in range(iterations):
         error = goal - current
 
@@ -16,7 +18,8 @@ def pid_data(kp,ki,kd):
         priorerror = error
 
         change = kp * error + ki * integral + kd * differential
-        current += change
+        velocity += change
+        current += velocity * dt
         array.append(current)
     return array
 
